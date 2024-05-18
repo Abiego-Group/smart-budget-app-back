@@ -41,7 +41,7 @@ public class User implements Serializable {
     @Column(name = "role")
     private String role;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany()
     private List<Wallet> wallets;
 
     @Temporal(TemporalType.TIMESTAMP)
