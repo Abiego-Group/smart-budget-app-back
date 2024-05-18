@@ -5,8 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
-public class Goal {
-    private String id;
+public class GoalDto {
     private String name;
     private Long target;
     private Long currentAmount;
