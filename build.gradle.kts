@@ -53,14 +53,15 @@ dependencies {
     /**
      * Utils & Logging
      */
-    implementation("com.fasterxml.jackson.core:jackson-databind")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.14.2")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
-    implementation("org.slf4j:slf4j-api")
-    implementation("ch.qos.logback:logback-classic")
-    implementation("org.projectlombok:lombok")
-    annotationProcessor("org.projectlombok:lombok")
-    implementation("org.mapstruct:mapstruct")
-    annotationProcessor("org.mapstruct:mapstruct-processor")
+    implementation("org.slf4j:slf4j-api:2.0.5")
+    implementation("ch.qos.logback:logback-classic:1.4.6")
+    implementation("org.projectlombok:lombok:1.18.26")
+    implementation("org.mapstruct:mapstruct:1.5.5.Final")
+    implementation("io.swagger.core.v3:swagger-annotations:2.2.21")
+    annotationProcessor("org.projectlombok:lombok:1.18.26")
+    annotationProcessor("org.mapstruct:mapstruct-processor:1.5.5.Final")
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")
 
     /**
