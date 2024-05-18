@@ -9,7 +9,6 @@ import java.util.List;
 @Data
 @RequiredArgsConstructor
 public class UserDto {
-    private String id;
     private String name;
     private String surname;
     private String middleName;
@@ -17,5 +16,5 @@ public class UserDto {
     private String inn;
     private Role role;
     private List<String> walletIds;
-    private List<Goal> goals;
+    private List<GoalDto> goals;
 }

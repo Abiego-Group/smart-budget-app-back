@@ -8,7 +8,6 @@ import ru.project.smartbudget.controller.IUserController;
 import ru.project.smartbudget.model.UserDto;
 import ru.project.smartbudget.service.IUserService;
 
-@Slf4j
 @RestController
 @RequiredArgsConstructor
 public class UserController implements IUserController {
@@ -19,5 +18,10 @@ public class UserController implements IUserController {
     @Operation(summary = "Создание пользователя")
     public void createUser(UserDto user) {
         userService.createUser(user);
+    }
+
+    @Override
+    public UserDto getUser(String id) {
+        userService.getUser(id)
     }
 }
