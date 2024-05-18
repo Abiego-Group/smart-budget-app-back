@@ -1,6 +1,5 @@
 package ru.project.smartbudget.model;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import ru.project.smartbudget.model.dictionary.Role;
@@ -8,7 +7,6 @@ import ru.project.smartbudget.model.dictionary.Role;
 import java.util.List;
 
 @Data
-@Builder
 @RequiredArgsConstructor
 public class UserDto {
     private String id;
