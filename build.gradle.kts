@@ -2,6 +2,7 @@ plugins {
     java
     id("org.springframework.boot") version "3.2.5"
     id("io.spring.dependency-management") version "1.1.4"
+    jacoco
 }
 
 group = "ru.project"
@@ -9,6 +10,11 @@ version = "0.0.1-SNAPSHOT"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
+}
+
+jacoco {
+    toolVersion = "0.8.11"
+    reportsDirectory = layout.buildDirectory.dir("customJacocoReportDir")
 }
 
 configurations {
@@ -54,7 +60,6 @@ dependencies {
     implementation("org.projectlombok:lombok:1.18.26")
     implementation("org.mapstruct:mapstruct:1.5.5.Final")
     implementation("io.swagger.core.v3:swagger-annotations:2.2.21")
-    implementation("org.apache.maven.plugins:maven-surefire-plugin:2.22.2")
     annotationProcessor("org.projectlombok:lombok:1.18.26")
     annotationProcessor("org.mapstruct:mapstruct-processor:1.5.5.Final")
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")
@@ -67,7 +72,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.integration:spring-integration-test")
     testImplementation("org.springframework.security:spring-security-test")
-    testImplementation("org.jacoco:org.jacoco.agent:0.8.12")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
@@ -75,16 +79,20 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+}
+tasks.jacocoTestReport {
+    dependsOn(tasks.test) // tests are required to run before generating the report
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir("jacocoHtml")
+    }
+}
+
 val test by tasks.getting(Test::class) { testLogging.showStandardStreams = true }
 
 tasks.bootJar {
     archiveFileName.set("smart-budget.jar")
-}
-
-tasks.withType<JacocoReport> {
-    reports {
-        xml.required = true
-        csv.required = true
-        html.required = true
-    }
 }
