@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -29,21 +29,23 @@ public class Transaction {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at")
-    private Date updatedAt;
+    private LocalDateTime updatedAt;
 
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
     private User user;
 
     @OneToOne
+    @Enumerated(EnumType.STRING)
     @JoinColumn(name = "currencyId", nullable = false)
     private Currency currency;
 
     @OneToOne
+    @Enumerated(EnumType.STRING)
     @JoinColumn(name = "categoryId", nullable = false)
     private Category category;
 }

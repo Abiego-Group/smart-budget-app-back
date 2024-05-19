@@ -30,9 +30,9 @@ public class Wallet implements Serializable {
     @Column(name = "transaction_history_id")
     private Long transactionHistoryId;
 
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "transaction_id")
-    private Transaction transactionHistory;
+    private List<Transaction> transactionHistory;
 
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
