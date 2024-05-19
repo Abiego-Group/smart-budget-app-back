@@ -36,12 +36,17 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-integration")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-security:3.2.5")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-aop")
     implementation("org.springframework.retry:spring-retry")
     implementation("org.springframework.integration:spring-integration-http")
     implementation("org.springframework.integration:spring-integration-jpa")
     implementation("org.springframework.integration:spring-integration-security")
+    implementation("org.springframework.security:spring-security-core:6.2.4")
+    implementation("org.springframework.security:spring-security-web:6.2.4")
+    implementation("org.springframework.security:spring-security-config:6.2.4")
+    implementation("org.springframework.session:spring-session-jdbc:3.2.2")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
     /**

@@ -2,7 +2,6 @@ package ru.project.smartbudget.controller.impl;
 
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 import ru.project.smartbudget.controller.IUserController;
 import ru.project.smartbudget.model.UserDto;
@@ -22,6 +21,6 @@ public class UserController implements IUserController {
 
     @Override
     public UserDto getUser(String id) {
-        userService.getUser(id)
+        return userService.getUser(id);
     }
 }

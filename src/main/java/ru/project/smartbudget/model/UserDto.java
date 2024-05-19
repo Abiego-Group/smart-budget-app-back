@@ -1,13 +1,14 @@
 package ru.project.smartbudget.model;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import ru.project.smartbudget.model.dictionary.Role;
 
 import java.util.List;
 
 @Data
-@RequiredArgsConstructor
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDto {
     private String name;
     private String surname;
